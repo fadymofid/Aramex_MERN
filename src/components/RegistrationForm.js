@@ -1,32 +1,44 @@
 import React, { useState } from "react";
-import "./RegistrationForm.css"; // Custom CSS
+import axios from "axios";
+import "./RegistrationForm.css"; 
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    phone:""
+    phone: ""
   });
 
+  // Function to handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevData) => ({
+      ...prevData,
       [name]: value,
-    });
+    }));
+    console.log("Updated Form Data:", { ...formData, [name]: value }); // Log updated data
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add form validation or submission logic here
-    console.log("Form submitted:", formData);
+  // Function to handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+    console.log("Form Submitted:", formData); // Log form data on submission
+    
+    try {
+      const response = await axios.post("http://localhost:8000/registers", formData);
+      console.log("Registration successful:", response.data);
+      // Handle success (e.g., show success message or redirect)
+    } catch (error) {
+      console.error("Registration failed:", error.response ? error.response.data : error.message);
+      // Handle error (e.g., show error message to user)
+    }
   };
 
   return (
     <div className="form-container">
       <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}> {/* Ensure onSubmit is here */}
         <div className="form-group mb-3">
           <label htmlFor="name">Name</label>
           <input
@@ -66,7 +78,6 @@ const RegistrationForm = () => {
           />
         </div>
 
-    
         <div className="form-group mb-3">
           <label htmlFor="phone">Phone</label>
           <input
@@ -80,7 +91,7 @@ const RegistrationForm = () => {
           />
         </div>
 
-        <button type="submit" className="btn submit-btn">
+        <button type="submit" className="btn submit-btn"onClick={handleSubmit}> {/* Ensure button type is submit */}
           Register
         </button>
       </form>

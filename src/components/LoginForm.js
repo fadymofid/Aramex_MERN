@@ -1,22 +1,29 @@
-// src/components/LoginForm.js
-
 import React, { useState } from 'react';
-import './RegistrationForm.css'; // Reuse the same CSS as RegistrationForm
+import axios from 'axios';
+import './RegistrationForm.css';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Login Form Submitted:', { email, password });
+  const handleSubmit = async (e) => {
+    e.preventDefault();  // Prevent form from reloading the page
+    console.log('Submitting form...');  // Check if this logs correctly
+
+    try {
+      console.log(email + password);
+      const response = await axios.post('//localhost:8000/login', { email, password });
+      console.log('Login Success:', response.data);
+      // Handle successful login response, such as saving a token or redirecting
+    } catch (error) {
+      console.error('Login Failed:', error.response ? error.response.data : error.message);
+    }
   };
 
   return (
     <div className="form-container">
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form">
         <h2>Login</h2>
-
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
@@ -43,7 +50,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <button type="submit" className="submit-btn">
+        <button type="button" className="submit-btn" onClick={handleSubmit}>
           Login
         </button>
       </form>
