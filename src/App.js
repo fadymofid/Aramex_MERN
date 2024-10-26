@@ -22,16 +22,16 @@ function App() {
       {/* Button to toggle between forms */}
       <div style={{ textAlign: 'center', marginTop: '20px' }}>
         {isLogin ? (
-          <p>
+          <p style={{fontSize:'20px'}}>
             Don't have an account?{' '}
-            <button onClick={toggleForm} className="toggle-btn">
+            <button onClick={toggleForm} className="toggle-btn btn">
               Register
             </button>
           </p>
         ) : (
-          <p>
+          <p style={{fontSize:'20px'}}>
             Already have an account?{' '}
-            <button onClick={toggleForm} className="toggle-btn">
+            <button onClick={toggleForm} className="toggle-btn btn">
               Login
             </button>
           </p>

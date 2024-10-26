@@ -7,32 +7,27 @@ const RegistrationForm = () => {
     name: "",
     email: "",
     password: "",
-    confirmPassword: "", // New field
+    confirmPassword: "",
     phone: ""
   });
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // New state for confirm password
-  const [message, setMessage] = useState(""); // State for popup message
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [message, setMessage] = useState("");
 
-  // Function to handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-    console.log("Updated Form Data:", { ...formData, [name]: value });
   };
 
-  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
 
-    // Validate password and confirm password match
     if (formData.password !== formData.confirmPassword) {
       setMessage("Passwords do not match!");
-      return; // Stop submission
+      return;
     }
 
     try {
@@ -42,12 +37,10 @@ const RegistrationForm = () => {
         password: formData.password,
         phone: formData.phone,
       });
-      console.log("Registration successful:", response.data);
-      setMessage("Registration successful!"); // Set success message
-      setFormData({ name: "", email: "", password: "", confirmPassword: "", phone: "" }); // Clear form
+      setMessage("Registration successful!");
+      setFormData({ name: "", email: "", password: "", confirmPassword: "", phone: "" });
     } catch (error) {
-      console.error("Registration failed:", error.response ? error.response.data : error.message);
-      setMessage("Registration failed! Please try again."); // Set error message
+      setMessage("Registration failed! Please try again.");
     }
   };
 
@@ -83,7 +76,7 @@ const RegistrationForm = () => {
 
         <div className="form-group mb-3">
           <label htmlFor="password">Password</label>
-          <div className="password-container">
+          <div className="input-group">
             <input
               type={showPassword ? "text" : "password"}
               className="form-control"
@@ -95,17 +88,17 @@ const RegistrationForm = () => {
             />
             <button
               type="button"
-              className="toggle-password-btn"
+              className="btn btn-outline-secondary"
               onClick={() => setShowPassword((prev) => !prev)}
             >
-              {showPassword ? '🙈' : '👁️'}
+              <i className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"}`}></i>
             </button>
           </div>
         </div>
 
         <div className="form-group mb-3">
           <label htmlFor="confirmPassword">Confirm Password</label>
-          <div className="password-container">
+          <div className="input-group">
             <input
               type={showConfirmPassword ? "text" : "password"}
               className="form-control"
@@ -117,10 +110,10 @@ const RegistrationForm = () => {
             />
             <button
               type="button"
-              className="toggle-password-btn"
+              className="btn btn-outline-secondary"
               onClick={() => setShowConfirmPassword((prev) => !prev)}
             >
-              {showConfirmPassword ? '🙈' : '👁️'}
+              <i className={`bi ${showConfirmPassword ? "bi-eye-slash" : "bi-eye"}`}></i>
             </button>
           </div>
         </div>
@@ -138,17 +131,12 @@ const RegistrationForm = () => {
           />
         </div>
 
-        <button type="submit" className="btn submit-btn">
+        <button type="submit" className="submit-btn">
           Register
         </button>
       </form>
 
-      {/* Display Popup Message */}
-      {message && (
-        <div className="popup-message">
-          {message}
-        </div>
-      )}
+      {message && <div className="popup-message">{message}</div>}
     </div>
   );
 };

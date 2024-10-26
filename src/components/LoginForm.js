@@ -40,11 +40,11 @@ const LoginForm = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-group mb-3">
           <label htmlFor="password">Password</label>
-          <div className="password-container">
+          <div className="input-group">
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               id="password"
               className="form-control"
               placeholder="Enter password"
@@ -54,11 +54,11 @@ const LoginForm = () => {
             />
             <button
               type="button"
-              className="toggle-password-btn"
+              className="btn btn-outline-secondary"
               onClick={() => setShowPassword((prev) => !prev)}
             >
-              {showPassword ? '🙈' : '👁️'}
-            </button>
+              <i className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"}`}></i>
+              </button>
           </div>
         </div>
 

@@ -106,3 +106,19 @@ h2 {
   border: 1px solid #f5c6cb; /* Error message border */
   border-radius: 5px; /* Rounded corners */
 }
+.toggle-btn {
+  background-color: transparent;
+  border: none;
+  color: #333333; /* Darker color for a modern look */
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: 500; /* Slightly lighter weight for modern typography */
+  padding: 5px;
+  border-radius: 50%; /* Rounded icon button */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+.toggle-btn:hover {
+  color: #ffffff; /* Modern blue color on hover */
+  background-color: rgba(26, 115, 232, 0.1); /* Soft blue background on hover */
+}
