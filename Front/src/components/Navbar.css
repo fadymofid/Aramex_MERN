@@ -1,0 +1,109 @@
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.75rem; /* Slightly larger for better visibility */
+  color: #343a40; /* Darker color for brand name */
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #0056b3; /* Hover effect on brand name */
+}
+
+.nav-link {
+  font-size: 1.1rem;
+  color: #007bff !important;
+  padding: 8px 15px; /* Consistent padding */
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #0056b3 !important;
+  background-color: #f1f1f1; /* Subtle background color on hover */
+}
+
+button.nav-link {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Navbar Container */
+.navbar {
+  padding: 0.5rem 1rem; /* Add some spacing around the navbar */
+  background-color: #ffffff; /* Light background for contrast */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow for a floating effect */
+  border-bottom: 1px solid #e0e0e0; /* Light border to separate from content */
+}
+
+.navbar .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.navbar h1 {
+  font-size: 1.25rem; /* Adjust font size for better readability */
+  margin: 0;
+  color: #343a40; /* Match the brand color */
+}
+
+.navbar p {
+  font-size: 0.875rem; /* Smaller subtitle size */
+  margin: 0;
+  color: #6c757d; /* Subtle subtitle color */
+}
+
+/* Navbar Fixed on Top */
+.fixed-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Slight shadow to separate from content */
+}
+
+/* Thin Navbar Styling */
+.thin-navbar {
+  height: 50px;
+  padding: 0;
+  font-size: 1rem;
+}
+
+/* Adjust Navbar Items for Small Devices */
+@media (max-width: 768px) {
+  .navbar-brand {
+      font-size: 1.5rem;
+  }
+
+  .nav-link {
+      font-size: 1rem;
+      padding: 8px 12px;
+  }
+
+  .navbar h1 {
+      font-size: 1.1rem;
+  }
+
+  .navbar p {
+      font-size: 0.8rem;
+  }
+}
+
+/* Toggler Button */
+.navbar-toggler {
+  padding: 5px;
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-color: #343a40; /* Dark color for the toggler icon */
+}
+
+/* Active Link Style */
+.navbar-nav .nav-item.active .nav-link {
+  color: #0056b3 !important;
+  background-color: #f1f1f1;
+}

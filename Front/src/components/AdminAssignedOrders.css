@@ -1,0 +1,58 @@
+.admin-assigned-orders {
+  margin-top: 70px; /* Adjust for fixed navbar */
+}
+
+.admin-assigned-orders .header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.admin-assigned-orders h2 {
+  color: black; /* Dark blue color */
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #bbdefb; /* Light blue hover effect */
+}
+
+.table thead th {
+  border-bottom: 2px solid #90caf9; /* Light blue border */
+}
+
+.table tbody td {
+  vertical-align: middle;
+}
+
+.btn-primary {
+  background-color: #1976d2;
+  border-color: #1976d2;
+}
+
+.btn-primary:hover {
+  background-color: #1565c0;
+  border-color: #1565c0;
+}
+
+.btn-warning {
+  background-color: #ffb300;
+  border-color: #ffb300;
+}
+
+.btn-warning:hover {
+  background-color: #ffa000;
+  border-color: #ffa000;
+}
+
+.btn-danger {
+  background-color: #d32f2f;
+  border-color: #d32f2f;
+}
+
+.btn-danger:hover {
+  background-color: #c62828;
+  border-color: #c62828;
+}

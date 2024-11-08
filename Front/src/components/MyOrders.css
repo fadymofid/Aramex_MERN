@@ -1,0 +1,21 @@
+.my-orders {
+    padding: 20px;
+  }
+  
+  .my-orders h2 {
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .my-orders .table {
+    margin-top: 20px;
+  }
+  
+  .my-orders .btn {
+    margin-right: 10px;
+  }
+  
+  .my-orders .error-message {
+    color: red;
+  }
+  

@@ -1,0 +1,28 @@
+.assigned-orders {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .assigned-orders h2 {
+    color: #343a40;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #e9ecef;
+  }
+  
+  .table thead th {
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  .table tbody td {
+    vertical-align: middle;
+  }
+  
+  .form-control {
+    width: auto;
+    display: inline-block;
+  }
+  

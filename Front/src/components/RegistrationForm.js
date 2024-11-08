@@ -8,11 +8,13 @@ const RegistrationForm = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    phone: ""
+    phone: "",
+    role: "Client" // Default role set to Client
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState(""); // State for message type
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,26 +26,29 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (formData.password !== formData.confirmPassword) {
       setMessage("Passwords do not match!");
+      setMessageType("error");
       return;
     }
-
+  
     try {
-      const response = await axios.post("http://localhost:8000/registers", {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-        phone: formData.phone,
+      const response = await axios.post("http://localhost:8000/registers", formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
+  
       setMessage("Registration successful!");
-      setFormData({ name: "", email: "", password: "", confirmPassword: "", phone: "" });
+      setMessageType("success");
+      setFormData({ name: "", email: "", password: "", confirmPassword: "", phone: "", role: "Client" });
     } catch (error) {
       setMessage("Registration failed! Please try again.");
+      setMessageType("error");
     }
   };
-
+  
   return (
     <div className="form-container">
       <h2>Register</h2>
@@ -131,12 +136,32 @@ const RegistrationForm = () => {
           />
         </div>
 
+        {/* Role selection dropdown */}
+        <div className="form-group mb-3">
+          <label htmlFor="role">Role</label>
+          <select
+            id="role"
+            name="role"
+            className="form-control"
+            value={formData.role}
+            onChange={handleChange}
+            required
+          >
+            <option value="customer">Customer</option>
+            <option value="courier">Courier</option>
+          </select>
+        </div>
+
         <button type="submit" className="submit-btn">
           Register
         </button>
       </form>
 
-      {message && <div className="popup-message">{message}</div>}
+      {message && (
+        <div className={`popup-message ${messageType === "success" ? "popup-success" : "popup-error"}`}>
+          {message}
+        </div>
+      )}
     </div>
   );
 };

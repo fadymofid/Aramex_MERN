@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "ba27ac20-f160-41b4-9fcb-314c06bf831c",
+		"name": "Pacakge_ordering",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31542376",
+		"_collection_link": "https://order-tracking.postman.co/workspace/order-tracking-Workspace~b150e6c3-d3aa-4ddf-86d5-e351bd879694/collection/31542376-ba27ac20-f160-41b4-9fcb-314c06bf831c?action=share&source=collection_link&creator=31542376"
+	},
+	"item": [
+		{
+			"name": "user registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"ahmedtarek11\",\r\n  \"email\": \"AhmedT11@gmail.com\",\r\n  \"password\": \"ahmedahmed11\",\r\n  \"phone\": \"010101010101\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/registers",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"registers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"AhmedT11@gmail.com\",\r\n  \"password\": \"ahmedahmed11\"\r\n\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/Login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"Login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
